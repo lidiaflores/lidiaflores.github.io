@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Lidia Flores</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      background: #fff;
+      color: #1a1a1a;
+      font-size: 15px;
+      line-height: 1.7;
+    }
+
+    a { color: #023054; text-decoration: underline; }
+    a:hover { opacity: 0.75; }
+
+    /* ── Layout ── */
+    .page {
+      max-width: 680px;
+      margin: 0 auto;
+      padding: 56px 24px 80px;
+    }
+
+    /* ── Header card ── */
+    .header {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 14px;
+      margin-bottom: 36px;
+    }
+
+    .avatar {
+      width: 110px;
+      height: 110px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 3px solid #e8eef3;
+      box-shadow: 0 2px 12px rgba(2,48,84,0.12);
+    }
+
+    .avatar-fallback {
+      width: 110px;
+      height: 110px;
+      border-radius: 50%;
+      background: #023054;
+      color: #fff;
+      font-size: 36px;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      letter-spacing: 1px;
+      flex-shrink: 0;
+    }
+
+    .name {
+      font-size: 26px;
+      font-weight: 700;
+      color: #023054;
+      letter-spacing: -0.3px;
+    }
+
+    .title {
+      font-size: 13.5px;
+      color: #023054;
+      opacity: 0.85;
+    }
+
+    .email {
+      font-size: 13px;
+      color: #5a5a5a;
+    }
+
+    /* ── Social icons ── */
+    .social-links {
+      display: flex;
+      gap: 10px;
+      list-style: none;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .social-links a {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      background: #023054;
+      color: #fff;
+      text-decoration: none;
+      font-size: 12.5px;
+      font-weight: 500;
+      padding: 6px 14px;
+      border-radius: 20px;
+      transition: background 0.18s, transform 0.15s;
+    }
+
+    .social-links a:hover {
+      background: #034a82;
+      transform: translateY(-1px);
+      opacity: 1;
+    }
+
+    .social-links svg {
+      width: 14px;
+      height: 14px;
+      fill: currentColor;
+      flex-shrink: 0;
+    }
+
+    /* ── Prose sections ── */
+    .bio { margin-bottom: 32px; }
+    .bio p + p { margin-top: 14px; }
+
+    /* ── Section blocks ── */
+    .section { margin-bottom: 36px; }
+
+    .section-label {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: #023054;
+      border-bottom: 2px solid #023054;
+      padding-bottom: 5px;
+      margin-bottom: 18px;
+    }
+
+    /* ── Publications ── */
+    .pub-list { list-style: none; display: flex; flex-direction: column; gap: 16px; }
+
+    .pub {
+      padding: 14px 16px;
+      border-left: 3px solid #c8d9e8;
+      background: #f7fafd;
+      border-radius: 0 6px 6px 0;
+    }
+
+    .pub-title {
+      font-weight: 600;
+      font-size: 14px;
+      color: #023054;
+      text-decoration: none;
+      display: block;
+      margin-bottom: 3px;
+    }
+
+    .pub-title:hover { text-decoration: underline; }
+
+    .pub-meta {
+      font-size: 12.5px;
+      color: #666;
+    }
+
+    /* ── Featured In ── */
+    .feature-list { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+
+    .feature-list li a {
+      font-size: 14px;
+      display: flex;
+      align-items: flex-start;
+      gap: 8px;
+      text-decoration: none;
+      color: #023054;
+    }
+
+    .feature-list li a::before {
+      content: "→";
+      flex-shrink: 0;
+      margin-top: 1px;
+      font-size: 13px;
+      opacity: 0.6;
+    }
+
+    .feature-list li a:hover { text-decoration: underline; }
+
+    /* ── Mentees ── */
+    .mentees-subhead {
+      font-style: italic;
+      font-size: 13px;
+      color: #555;
+      margin-bottom: 10px;
+    }
+
+    .mentee-list { list-style: none; display: flex; flex-direction: column; gap: 4px; }
+
+    .mentee-list li {
+      font-size: 14px;
+      padding: 4px 0;
+      border-bottom: 1px solid #f0f0f0;
+    }
+
+    /* ── Responsive ── */
+    @media (max-width: 480px) {
+      .page { padding: 36px 18px 60px; }
+      .name { font-size: 22px; }
+    }
+  </style>
+</head>
+<body>
+<main class="page">
+
+  <!-- ── Header ── -->
+  <header class="header">
+    <img
+      class="avatar"
+      src="https://i0.wp.com/lidiaflores.com/wp-content/uploads/2025/08/screenshot-2025-08-06-at-7.42.42-pm.png?fit=1072%2C1082&ssl=1"
+      alt="Lidia Flores"
+      onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
+    />
+    <div class="avatar-fallback" style="display:none;" aria-hidden="true">LF</div>
+
+    <h1 class="name">Lidia Flores</h1>
+    <p class="title">Ph.D. Candidate, University of California, Irvine</p>
+    <p class="email">floreslc@uci.edu</p>
+
+    <ul class="social-links">
+      <li>
+        <a href="https://github.com/lidiaflores" target="_blank" rel="noopener" aria-label="GitHub">
+          <svg viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
+            <path d="M8 0C3.58 0 0 3.58 0 8a8 8 0 0 0 5.47 7.59c.4.07.55-.17.55-.38
+              0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13
+              -.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66
+              .07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15
+              -.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82a7.65 7.65 0 0 1 2-.27
+              c.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12
+              .51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48
+              0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8z"/>
+          </svg>
+          GitHub
+        </a>
+      </li>
+      <li>
+        <a href="https://www.linkedin.com/in/lidiafloresai" target="_blank" rel="noopener" aria-label="LinkedIn">
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path d="M20.45 20.45h-3.554v-5.57c0-1.327-.026-3.035-1.848-3.035
+              -1.851 0-2.134 1.445-2.134 2.938v5.667H9.362V9h3.413v1.561h.048
+              c.476-.9 1.637-1.848 3.368-1.848 3.601 0 4.266 2.37 4.266 5.455v6.282zM5.337
+              7.433a2.063 2.063 0 1 1 0-4.126 2.063 2.063 0 0 1 0 4.126zM6.82 20.45
+              H3.852V9H6.82v11.45zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542
+              C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729
+              C24 .774 23.2 0 22.222 0h.003z"/>
+          </svg>
+          LinkedIn
+        </a>
+      </li>
+      <li>
+        <a href="https://scholar.google.com/citations?user=5P7GoLMAAAAJ&hl=en" target="_blank" rel="noopener" aria-label="Google Scholar">
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path d="M5.242 13.769 0 9.5 12 1l12 8.5-5.242 4.269C17.548
+              15.909 15 17.5 12 17.5c-3 0-5.548-1.591-6.758-3.731z"/>
+            <path d="M12 17.5c-2.5 0-4.5-.9-6-2.5v4.5c0 2 2.5 3.5 6 3.5s6-1.5
+              6-3.5V15c-1.5 1.6-3.5 2.5-6 2.5z"/>
+          </svg>
+          Google Scholar
+        </a>
+      </li>
+    </ul>
+  </header>
+
+  <!-- ── Bio ── -->
+  <section class="bio" aria-label="Biography">
+    <p>I am a 6th year Ph.D. candidate in Informatics at UC Irvine's School of Computer Science
+      with a 3.9 GPA, co-advised by
+      <a href="https://www.informatics.uci.edu/explore/faculty-profiles/madhu-reddy/">Madhu Reddy</a>
+      and
+      <a href="https://faculty.sites.uci.edu/schuellerlab/stephen-schueller-phd/">Stephen Schueller</a>.
+      I am also a <strong><a href="https://research.google/programs-and-events/phd-fellowship/recipients/">Google PhD Research Fellow</a></strong>
+      in Health &amp; Bioscience, mentored by
+      <a href="https://health.google/health-research/">Priya Gupta</a>.
+      My research focuses on the role of AI transparency in large language models on user
+      health-related information-seeking behaviors, how health chatbots shape patient outcomes,
+      and the ethical considerations of AI in medical settings. My findings have been published
+      in top journals including the
+      <strong><a href="https://jamanetwork.com/journals/jamasurgery/article-abstract/2806778">Journal of the American Medical Association (JAMA Surgery)</a></strong>.
+    </p>
+    <p>Before my PhD, I was a research associate at the
+      <strong><a href="https://www.emergencymed.uci.edu/research-overview.asp">Emergency Medicine Department</a></strong>
+      at UCI Health School of Medicine, where I gained experience collecting, analyzing, and
+      visualizing big data to improve the timeliness of health data.
+    </p>
+    <p>As a researcher, I am a quick learner with a keen eye for detail and strong technical
+      skills. I have been awarded scholarships from
+      <strong><a href="https://about.google/">Google</a></strong>,
+      UCI's Startup Fund Award, Graduate Recruitment Fellowship,
+      <a href="https://inclusion.uci.edu/education-events/mentoring/latino-excellence-and-achievement-award/">UCI LEAD</a>,
+      and the UC Irvine Staff Assembly Scholarship.
+    </p>
+  </section>
+
+  <!-- ── Publications ── -->
+  <section class="section" aria-labelledby="pub-heading">
+    <h2 class="section-label" id="pub-heading">Selected Publications</h2>
+    <ul class="pub-list">
+      <li class="pub">
+        <a class="pub-title" href="https://pubmed.ncbi.nlm.nih.gov/36042870/" target="_blank" rel="noopener">
+          Considerations in the Application of Artificial Intelligence to Monitor Social Media for COVID-19 Data
+        </a>
+        <span class="pub-meta">L. Flores, S.D. Young &nbsp;·&nbsp; <em>Minds and Machines</em>, 2022</span>
+      </li>
+      <li class="pub">
+        <a class="pub-title" href="https://pubmed.ncbi.nlm.nih.gov/37130756/" target="_blank" rel="noopener">
+          Addressing Bias in Artificial Intelligence for Public Health Surveillance
+        </a>
+        <span class="pub-meta">L. Flores, S. Kim, S.D. Young &nbsp;·&nbsp; <em>Journal of Medical Ethics</em>, 2023</span>
+      </li>
+      <li class="pub">
+        <a class="pub-title" href="https://www.nature.com/articles/s44401-025-00032-5" target="_blank" rel="noopener">
+          Systematic Review of Early Evidence on Generative AI for Drafting Responses to Patient Messages
+        </a>
+        <span class="pub-meta">A.D. Hu, Y. Guo, Y. Zhou, L. Flores, K. Zheng &nbsp;·&nbsp; <em>NPJ Health Systems</em>, 2025</span>
+      </li>
+    </ul>
+  </section>
+
+  <!-- ── Featured In ── -->
+  <section class="section" aria-labelledby="featured-heading">
+    <h2 class="section-label" id="featured-heading">Featured In</h2>
+    <ul class="feature-list">
+      <li><a href="https://ics.uci.edu/flipbook/annual-report-2024" target="_blank" rel="noopener">
+        UC Irvine School of Computer Science: Year in Review 2024 Magazine
+      </a></li>
+      <li><a href="https://ics.uci.edu/2024/11/15/lidia-flores-awarded-2024-google-fellowship/" target="_blank" rel="noopener">
+        UCI ICS: Lidia Flores Awarded 2024 Google Fellowship
+      </a></li>
+      <li><a href="https://ics.uci.edu/2024/10/08/health-informatics-ph-d-student-lidia-flores-a-rising-latina-in-tech/" target="_blank" rel="noopener">
+        UCI ICS: A Rising Latina in Tech
+      </a></li>
+      <li><a href="https://medschool.uci.edu/news/uci-led-research-found-internet-searches-increased-self-managed-abortions-when-roe-v-wade-was" target="_blank" rel="noopener">
+        UC Irvine School of Medicine: Publication Feature
+      </a></li>
+      <li><a href="https://cfep.uci.edu/the-edge/" target="_blank" rel="noopener">
+        The EDGE Magazine: Annual College Preparatory Magazine
+      </a></li>
+    </ul>
+  </section>
+
+  <!-- ── Mentees ── -->
+  <section class="section" aria-labelledby="mentees-heading">
+    <h2 class="section-label" id="mentees-heading">Mentees</h2>
+    <p class="mentees-subhead">Undergraduate Students</p>
+    <ul class="mentee-list">
+      <li>Haoyi Cai <span style="color:#888;font-size:13px;">(Winter 2026 – Spring 2026)</span></li>
+      <li>Yitong Liu <span style="color:#888;font-size:13px;">(Winter 2026 – Spring 2026)</span></li>
+      <li>Vaishnavi Badiger <span style="color:#888;font-size:13px;">(Winter 2026 – Spring 2026)</span></li>
+      <li>Nya Chambers <span style="color:#888;font-size:13px;">(Winter 2026 – Spring 2026)</span></li>
+    </ul>
+  </section>
+
+</main>
+</body>
+</html>
