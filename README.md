@@ -37,40 +37,23 @@
 <p class="has-small-font-size">As a researcher, I am a quick learner with a keen eye for detail and stellar computer skills. I have been awarded scholarships from <strong><a href="https://about.google/">Google</a></strong>, UCI's Startup Fund Award, Graduate Recruitment Fellowship, <a href="https://inclusion.uci.edu/education-events/mentoring/latino-excellence-and-achievement-award/">UCI LEAD</a>, and UC Irvine Staff Assembly Scholarship.</p>
 <!-- /wp:paragraph -->
 
-<!-- wp:code {"tokenizedLines":[[["U2VsZWN0ZWQgUHVibGljYXRpb25zIA=="]]],"languageConfidence":"certain","style":{"color":{"text":"#023054"}},"fontSize":"medium","fontFamily":"system-font"} -->
-<pre class="wp-block-code has-text-color has-system-font-font-family has-medium-font-size" style="color:#023054"><code>Selected Publications </code></pre>
-<!-- /wp:code -->
 
-<!-- wp:columns -->
-<div class="wp-block-columns"><!-- wp:column {"width":"100%"} -->
-<div class="wp-block-column" style="flex-basis:100%"><!-- wp:columns -->
-<div class="wp-block-columns"><!-- wp:column {"width":"100%"} -->
-<div class="wp-block-column" style="flex-basis:100%"><!-- wp:columns {"isStackedOnMobile":false} -->
-<div class="wp-block-columns is-not-stacked-on-mobile"><!-- wp:column {"width":"50%"} -->
-<div class="wp-block-column" style="flex-basis:50%"><!-- wp:code {"tokenizedLines":[[["RXRoaWNhbCBDb25zaWRlcmF0aW9ucyBpbiB0aGUgQXBwbGljYXRpb24gb2YgQXJ0aWZpY2lhbCBJbnRlbGxpZ2VuY2UgdG8gTW9uaXRvciBTb2NpYWwgTWVkaWEgZm9yIENPVklELTE5IERhdGE="]],[["TGlkaWEgRmxvcmVzLCBTRCBZb3VuZyA="]],[["TWluZHMgYW5kIE1hY2hpbmVzLCAyMDIyICA="]],[[""]],[["QSBTeXN0ZW1hdGljIFJldmlldyBvZiBFYXJseSBFdmlkZW5jZSBvbiBHZW5lcmF0aXZlIEFJIGZvciBEcmFmdGluZyBSZXNwb25zZXMgdG8gUGF0aWVudCBNZXNzYWdlcw=="]],[["RGkgSHUsIFlhd2VuIEd1bywgWWlsaWFuZyBaaG91LCBMaWRpYSBGbG9yZXMsIEthaSBaaGVuZyA="]],[["TlBKIEhlYWx0aCBTeXN0ZW1zLCAyMDI1"]]],"fontSize":"small","fontFamily":"system-font"} -->
-<pre class="wp-block-code has-system-font-font-family has-small-font-size"><code>Ethical Considerations in the Application of Artificial Intelligence to Monitor Social Media for COVID-19 Data
-Lidia Flores, SD Young 
-Minds and Machines, 2022  
+<!-- wp:paragraph {"style":{"color":{"text":"#023054"},"elements":{"link":{"color":{"text":"#023054"}}}}} -->
+<p class="has-text-color has-link-color" style="color:#023054">Publications</p>
+<!-- /wp:paragraph -->
 
+<!-- wp:paragraph {"fontSize":"small"} -->
+<p class="has-small-font-size"><a href="https://pubmed.ncbi.nlm.nih.gov/36042870/">L Flores, SD Young (2022). Considerations in the Application of Artificial Intelligence to Monitor Social Media for COVID-19 Data. Minds and Machines. </a></p>
+<!-- /wp:paragraph -->
 
-A Systematic Review of Early Evidence on Generative AI for Drafting Responses to Patient Messages
-Di Hu, Yawen Guo, Yiliang Zhou, Lidia Flores, Kai Zheng 
-NPJ Health Systems, 2025</code></pre>
-<!-- /wp:code --></div>
-<!-- /wp:column -->
+<!-- wp:paragraph {"fontSize":"small"} -->
+<p class="has-small-font-size"><a href="https://www.nature.com/articles/s44401-025-00032-5">A D Hu, Y Guo, Y Zhou, L Flores, K Zheng (2025). Systematic Review of Early Evidence on Generative AI for Drafting Responses to Patient Messages. NPJ Health Systems. </a></p>
+<!-- /wp:paragraph -->
 
-<!-- wp:column {"width":"50%"} -->
-<div class="wp-block-column" style="flex-basis:50%"><!-- wp:code {"tokenizedLines":[[["QWRkcmVzc2luZyBCaWFzIGluIEFydGlmaWNpYWwgSW50ZWxsaWdlbmNlIGZvciBQdWJsaWMgSGVhbHRoIFN1cnZlaWxsYW5jZQ=="]],[["TCBGbG9yZXMsIFMgS2ltLCBTRCBZb3VuZw=="]],[["Sm91cm5hbCBvZiBNZWRpY2FsIEV0aGljcywgMjAyMyA="]]],"fontSize":"small","fontFamily":"system-font"} -->
-<pre class="wp-block-code has-system-font-font-family has-small-font-size"><code>Addressing Bias in Artificial Intelligence for Public Health Surveillance
-L Flores, S Kim, SD Young
-Journal of Medical Ethics, 2023 </code></pre>
-<!-- /wp:code --></div>
-<!-- /wp:column --></div>
-<!-- /wp:columns --></div>
-<!-- /wp:column --></div>
-<!-- /wp:columns --></div>
-<!-- /wp:column --></div>
-<!-- /wp:columns -->
+<!-- wp:paragraph {"fontSize":"small"} -->
+<p class="has-small-font-size"><a href="https://pubmed.ncbi.nlm.nih.gov/37130756/">L Flores, S Kim, SD Young (2023). Addressing Bias in Artificial Intelligence for Public Health Surveillance. Journal of Medical Ethics. </a></p>
+<!-- /wp:paragraph -->
+
 
 <!-- wp:paragraph {"style":{"color":{"text":"#023054"},"elements":{"link":{"color":{"text":"#023054"}}}}} -->
 <p class="has-text-color has-link-color" style="color:#023054">Featured In </p>
