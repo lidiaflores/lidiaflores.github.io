@@ -34,7 +34,7 @@
 <!-- /wp:paragraph -->
 
 <!-- wp:paragraph {"fontSize":"small"} -->
-<p class="has-small-font-size">As a researcher, I am a quick learner with a keen eye for detail and stellar computer skills. I have been awarded scholarships from <strong><a href="https://about.google/">Google</a></strong>, UCI's Startup Fund Award, Graduate Recruitment Fellowship, <a href="https://inclusion.uci.edu/education-events/mentoring/latino-excellence-and-achievement-award/">UCI LEAD</a>, and UC Irvine Staff Assembly Scholarship.</p>
+<p class="has-small-font-size">As a researcher, I am a quick learner with a keen eye for detail and stellar computer skills. I have been awarded scholarships from <strong><a href="https://about.google/">Google</a></strong>, UCI's Startup Fund Award, Graduate Recruitment Fellowship, <a href="https://inclusion.uci.edu/education-events/mentoring/latino-excellence-and-achievement-award/">UCI LEAD</a>, UC Irvine Dissertation Writing Fellowship, and UC Irvine Staff Assembly Scholarship.</p>
 <!-- /wp:paragraph -->
 
 
