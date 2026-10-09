@@ -12,18 +12,19 @@
       font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
       background: #fff;
       color: #1a1a1a;
-      font-size: 15px;
-      line-height: 1.7;
+      font-size: 16px;
+      line-height: 1.75;
     }
 
-    a { color: #023054; text-decoration: underline; }
-    a:hover { opacity: 0.75; }
+    /* Links: no underline by default, underline on hover */
+    a { color: #023054; text-decoration: none; }
+    a:hover { text-decoration: underline; }
 
     /* ── Layout ── */
     .page {
-      max-width: 680px;
+      max-width: 1100px;
       margin: 0 auto;
-      padding: 56px 24px 80px;
+      padding: 56px 40px 80px;
     }
 
     /* ── Header card ── */
@@ -31,16 +32,21 @@
       display: flex;
       flex-direction: column;
       align-items: center;
-      gap: 14px;
-      margin-bottom: 36px;
+      gap: 10px;
+      margin-bottom: 40px;
     }
+
+    /* Tighter spacing between name, title and links */
+    .header .name { line-height: 1.2; }
+    .header .title { line-height: 1.4; margin-top: -4px; }
+    .header .social-links { margin-top: 2px; }
 
     .avatar {
       width: 120px;
       height: 120px;
       border-radius: 50%;
       object-fit: cover;
-      object-position: center 20%;  
+      object-position: center 20%;
       border: 3px solid #e8eef3;
       box-shadow: 0 2px 12px rgba(2,48,84,0.12);
     }
@@ -61,14 +67,14 @@
     }
 
     .name {
-      font-size: 26px;
+      font-size: 28px;
       font-weight: 700;
       color: #023054;
       letter-spacing: -0.3px;
     }
 
     .title {
-      font-size: 13.5px;
+      font-size: 14px;
       color: #023054;
       opacity: 0.85;
     }
@@ -104,7 +110,7 @@
     .social-links a:hover {
       background: #034a82;
       transform: translateY(-1px);
-      opacity: 1;
+      text-decoration: none;
     }
 
     .social-links svg {
@@ -115,11 +121,21 @@
     }
 
     /* ── Prose sections ── */
-    .bio { margin-bottom: 32px; }
-    .bio p + p { margin-top: 14px; }
+    .bio { margin-bottom: 36px; }
+    .bio p + p { margin-top: 16px; }
+
+    /* In-sentence links: bold, no underline; underline on hover */
+    .bio a {
+      font-weight: 600;
+      text-decoration: none;
+    }
+    .bio a:hover {
+      text-decoration: underline;
+      text-underline-offset: 3px;
+    }
 
     /* ── Section blocks ── */
-    .section { margin-bottom: 36px; }
+    .section { margin-bottom: 40px; }
 
     .section-label {
       font-size: 11px;
@@ -132,8 +148,13 @@
       margin-bottom: 18px;
     }
 
-    /* ── Publications ── */
-    .pub-list { list-style: none; display: flex; flex-direction: column; gap: 16px; }
+    /* ── Publications: 2 x 2 grid ── */
+    .pub-list {
+      list-style: none;
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 16px;
+    }
 
     .pub {
       padding: 14px 16px;
@@ -144,41 +165,125 @@
 
     .pub-title {
       font-weight: 600;
-      font-size: 14px;
+      font-size: 14.5px;
+      line-height: 1.5;
       color: #023054;
       text-decoration: none;
       display: block;
-      margin-bottom: 3px;
+      margin-bottom: 6px;
     }
 
     .pub-title:hover { text-decoration: underline; }
 
     .pub-meta {
       font-size: 12.5px;
+      line-height: 1.55;
       color: #666;
+      display: block;
     }
 
-    /* ── Featured In ── */
-    .feature-list { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+    /* ── Press & Recognition cards ── */
+    .press-grid {
+      list-style: none;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 28px 22px;
+    }
 
-    .feature-list li a {
-      font-size: 14px;
-      display: flex;
-      align-items: flex-start;
-      gap: 8px;
+    .press-card {
+      display: block;
+      color: inherit;
       text-decoration: none;
-      color: #023054;
+    }
+    .press-card:hover { text-decoration: none; }
+
+    .press-thumb {
+      position: relative;
+      aspect-ratio: 16 / 9;
+      border-radius: 10px;
+      overflow: hidden;
+      border: 1px solid #dde6ee;
+      background: linear-gradient(135deg, #023054 0%, #0a5a96 60%, #6fa3cf 100%);
+      box-shadow: 0 1px 4px rgba(2,48,84,0.08);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
     }
 
-    .feature-list li a::before {
-      content: "→";
-      flex-shrink: 0;
-      margin-top: 1px;
-      font-size: 13px;
-      opacity: 0.6;
+    .press-thumb img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.35s ease;
     }
 
-    .feature-list li a:hover { text-decoration: underline; }
+    /* Shown if the image file is missing */
+    .press-thumb .thumb-fallback {
+      position: absolute;
+      inset: 0;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 12px;
+      text-align: center;
+      color: #fff;
+      font-weight: 700;
+      font-size: 15px;
+      line-height: 1.3;
+    }
+    .press-thumb.no-img .thumb-fallback { display: flex; }
+
+    /* Hover overlay with a round "open" button */
+    .press-thumb::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: rgba(2,48,84,0);
+      transition: background 0.2s ease;
+    }
+
+    .press-open {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 52px;
+      height: 52px;
+      margin: -26px 0 0 -26px;
+      border-radius: 50%;
+      background: rgba(20,20,20,0.75);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 1;
+      opacity: 0;
+      transform: scale(0.85);
+      transition: opacity 0.2s ease, transform 0.2s ease;
+    }
+    .press-open svg { width: 22px; height: 22px; fill: #fff; }
+
+    .press-card:hover .press-thumb,
+    .press-card:focus-visible .press-thumb {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 20px rgba(2,48,84,0.18);
+    }
+    .press-card:hover .press-thumb img { transform: scale(1.05); }
+    .press-card:hover .press-thumb::after { background: rgba(2,48,84,0.25); }
+    .press-card:hover .press-open,
+    .press-card:focus-visible .press-open { opacity: 1; transform: scale(1); }
+
+    .press-title {
+      margin-top: 10px;
+      font-size: 16px;
+      font-weight: 700;
+      line-height: 1.35;
+      color: #1a1a1a;
+    }
+    .press-card:hover .press-title { text-decoration: underline; text-underline-offset: 3px; }
+
+    .press-meta {
+      font-size: 13.5px;
+      color: #666;
+      margin-top: 2px;
+    }
 
     /* ── Mentees ── */
     .mentees-subhead {
@@ -191,15 +296,33 @@
     .mentee-list { list-style: none; display: flex; flex-direction: column; gap: 4px; }
 
     .mentee-list li {
-      font-size: 14px;
+      font-size: 14.5px;
       padding: 4px 0;
       border-bottom: 1px solid #f0f0f0;
     }
 
     /* ── Responsive ── */
+    @media (max-width: 720px) {
+      .pub-list { grid-template-columns: 1fr; }
+      .press-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+
+    @media (max-width: 440px) {
+      .press-grid { grid-template-columns: 1fr; }
+    }
+
+    @media (max-width: 720px) {
+      .page { padding: 44px 24px 64px; }
+    }
+
     @media (max-width: 480px) {
-      .page { padding: 36px 18px 60px; }
+      .page { padding: 32px 16px 56px; }
+      .header { gap: 8px; }
       .name { font-size: 22px; }
+      .title { font-size: 13px; text-align: center; }
+      .social-links { gap: 8px; }
+      .social-links a { padding: 6px 12px; }
+      body { font-size: 15px; }
     }
   </style>
 </head>
@@ -261,13 +384,13 @@
         </a>
       </li>
       <li>
-  <a href="mailto:floreslc@uci.edu" aria-label="Email">
-    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-      <path d="M20 4H4C2.9 4 2 4.9 2 6v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4-8 5-8-5V6l8 5 8-5v2z"/>
-    </svg>
-    Email
-  </a>
-</li>
+        <a href="mailto:floreslc@uci.edu" aria-label="Email">
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path d="M20 4H4C2.9 4 2 4.9 2 6v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4-8 5-8-5V6l8 5 8-5v2z"/>
+          </svg>
+          Email
+        </a>
+      </li>
     </ul>
   </header>
 
@@ -278,20 +401,20 @@
       <a href="https://sites.uci.edu/pitch/people/">Madhu Reddy</a>
       and
       <a href="https://faculty.sites.uci.edu/schuellerlab/stephen-schueller-phd/">Stephen Schueller</a>.
-      I am also a <strong><a href="https://research.google/programs-and-events/phd-fellowship/recipients/">Google PhD Research Fellow</a></strong>
+      I am also a <a href="https://research.google/programs-and-events/phd-fellowship/recipients/">Google PhD Research Fellow</a>
       in Health &amp; Bioscience, mentored by <a href="https://research.google/people/105160/">Laura Vardoulakis</a>.
-      My research involves mixed-methods approaches to understanding the role of AI transparency on user health engagement with large language models and how these interactions ultimately shape patient decision-making. This extends to evaluating the implementation of AI tools in clinical settings and the ethical considerations for using AI in medical research.  My findings have been published
+      My research involves mixed-methods approaches to understanding the role of AI transparency on user health engagement with large language models and how these interactions ultimately shape patient decision-making. This extends to evaluating the implementation of AI tools in clinical settings and the ethical considerations for using AI in medical research. My findings have been published
       in top journals including the
-      <strong><a href="https://jamanetwork.com/journals/jamasurgery/article-abstract/2806778">Journal of the American Medical Association (JAMA Surgery)</a></strong>.
+      <a href="https://jamanetwork.com/journals/jamasurgery/article-abstract/2806778">Journal of the American Medical Association (JAMA Surgery)</a>.
     </p>
     <p>Before my PhD, I was a research associate at the
-      <strong><a href="https://www.emergencymed.uci.edu/research-overview.asp">Emergency Medicine Department</a></strong>
+      <a href="https://www.emergencymed.uci.edu/research-overview.asp">Emergency Medicine Department</a>
       at UCI Health School of Medicine, where I gained experience collecting, analyzing, and
       visualizing big data to improve the timeliness of health data.
     </p>
     <p>As a researcher, I am a quick learner with a keen eye for detail and strong technical
       skills. I have been awarded scholarships from
-      <strong><a href="https://about.google/">Google</a></strong>,
+      <a href="https://about.google/">Google</a>,
       UCI's Startup Fund Award, Graduate Recruitment Fellowship,
       <a href="https://inclusion.uci.edu/education-events/mentoring/latino-excellence-and-achievement-award/">UCI LEAD</a>,
       and the UC Irvine Staff Assembly Scholarship.
@@ -320,7 +443,6 @@
         </a>
         <span class="pub-meta">A.D. Hu, Y. Guo, Y. Zhou, L. Flores, K. Zheng &nbsp;·&nbsp; <em>NPJ Health Systems</em>, 2025</span>
       </li>
-      </li>
       <li class="pub">
         <a class="pub-title" href="https://www.medrxiv.org/content/10.64898/2026.05.19.26353603v1.full" target="_blank" rel="noopener">
           Ambient AI Documentation in Mixed-Language Encounters: A Heuristic Evaluation of Spanish-English and Mandarin-English Conversations
@@ -330,25 +452,78 @@
     </ul>
   </section>
 
-  <!-- ── Featured In ── -->
-  <section class="section" aria-labelledby="featured-heading">
-    <h2 class="section-label" id="featured-heading">Featured In</h2>
-    <ul class="feature-list">
-      <li><a href="https://ics.uci.edu/flipbook/annual-report-2024" target="_blank" rel="noopener">
-        UC Irvine School of Computer Science: Year in Review 2024 Magazine
-      </a></li>
-      <li><a href="https://ics.uci.edu/2024/11/15/lidia-flores-awarded-2024-google-fellowship/" target="_blank" rel="noopener">
-        UCI ICS: Lidia Flores Awarded 2024 Google Fellowship
-      </a></li>
-      <li><a href="https://ics.uci.edu/2024/10/08/health-informatics-ph-d-student-lidia-flores-a-rising-latina-in-tech/" target="_blank" rel="noopener">
-        UCI ICS: A Rising Latina in Tech
-      </a></li>
-      <li><a href="https://medschool.uci.edu/news/uci-led-research-found-internet-searches-increased-self-managed-abortions-when-roe-v-wade-was" target="_blank" rel="noopener">
-        UC Irvine School of Medicine: Publication Feature
-      </a></li>
-      <li><a href="https://cfep.uci.edu/the-edge/" target="_blank" rel="noopener">
-        The EDGE Magazine: Annual College Preparatory Magazine
-      </a></li>
+  <!-- ── Press & Recognition ── -->
+  <!-- To change a thumbnail, replace the file in src="press-N.jpg".
+       If an image is missing, a navy card with the label shows instead. -->
+  <section class="section" aria-labelledby="press-heading">
+    <h2 class="section-label" id="press-heading">Press &amp; Recognition</h2>
+    <ul class="press-grid">
+
+      <li>
+        <a class="press-card" href="https://ics.uci.edu/2024/11/15/lidia-flores-awarded-2024-google-fellowship/" target="_blank" rel="noopener">
+          <div class="press-thumb">
+            <img src="press-1.jpg" alt="Google PhD Fellowship announcement" loading="lazy"
+                 onerror="this.style.display='none'; this.parentElement.classList.add('no-img');">
+            <span class="thumb-fallback">Google PhD Fellowship</span>
+            <span class="press-open" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M14 3v2h3.59l-9.83 9.83 1.41 1.41L19 6.41V10h2V3h-7zM19 19H5V5h7V3H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7h-2v7z"/></svg></span>
+          </div>
+          <p class="press-title">Awarded the 2024 Google PhD Fellowship</p>
+          <p class="press-meta">UCI Computer Science · 2024</p>
+        </a>
+      </li>
+
+      <li>
+        <a class="press-card" href="https://ics.uci.edu/2024/10/08/health-informatics-ph-d-student-lidia-flores-a-rising-latina-in-tech/" target="_blank" rel="noopener">
+          <div class="press-thumb">
+            <img src="press-2.jpg" alt="A Rising Latina in Tech feature" loading="lazy"
+                 onerror="this.style.display='none'; this.parentElement.classList.add('no-img');">
+            <span class="thumb-fallback">A Rising Latina in Tech</span>
+            <span class="press-open" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M14 3v2h3.59l-9.83 9.83 1.41 1.41L19 6.41V10h2V3h-7zM19 19H5V5h7V3H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7h-2v7z"/></svg></span>
+          </div>
+          <p class="press-title">A Rising Latina in Tech</p>
+          <p class="press-meta">UCI Computer Science · 2024</p>
+        </a>
+      </li>
+
+      <li>
+        <a class="press-card" href="https://medschool.uci.edu/news/uci-led-research-found-internet-searches-increased-self-managed-abortions-when-roe-v-wade-was" target="_blank" rel="noopener">
+          <div class="press-thumb">
+            <img src="press-3.jpg" alt="UCI School of Medicine research feature" loading="lazy"
+                 onerror="this.style.display='none'; this.parentElement.classList.add('no-img');">
+            <span class="thumb-fallback">Research Feature</span>
+            <span class="press-open" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M14 3v2h3.59l-9.83 9.83 1.41 1.41L19 6.41V10h2V3h-7zM19 19H5V5h7V3H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7h-2v7z"/></svg></span>
+          </div>
+          <p class="press-title">Internet Searches for Self-Managed Abortion After Roe</p>
+          <p class="press-meta">UCI School of Medicine</p>
+        </a>
+      </li>
+
+      <li>
+        <a class="press-card" href="https://ics.uci.edu/flipbook/annual-report-2024" target="_blank" rel="noopener">
+          <div class="press-thumb">
+            <img src="press-4.jpg" alt="UCI Computer Science Year in Review 2024 cover" loading="lazy"
+                 onerror="this.style.display='none'; this.parentElement.classList.add('no-img');">
+            <span class="thumb-fallback">Year in Review 2024</span>
+            <span class="press-open" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M14 3v2h3.59l-9.83 9.83 1.41 1.41L19 6.41V10h2V3h-7zM19 19H5V5h7V3H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7h-2v7z"/></svg></span>
+          </div>
+          <p class="press-title">Year in Review 2024</p>
+          <p class="press-meta">UCI Computer Science Magazine · 2024</p>
+        </a>
+      </li>
+
+      <li>
+        <a class="press-card" href="https://cfep.uci.edu/the-edge/" target="_blank" rel="noopener">
+          <div class="press-thumb">
+            <img src="press-5.jpg" alt="The EDGE Magazine cover" loading="lazy"
+                 onerror="this.style.display='none'; this.parentElement.classList.add('no-img');">
+            <span class="thumb-fallback">The EDGE Magazine</span>
+            <span class="press-open" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M14 3v2h3.59l-9.83 9.83 1.41 1.41L19 6.41V10h2V3h-7zM19 19H5V5h7V3H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7h-2v7z"/></svg></span>
+          </div>
+          <p class="press-title">The EDGE Magazine</p>
+          <p class="press-meta">UCI Center for Educational Partnerships</p>
+        </a>
+      </li>
+
     </ul>
   </section>
 
@@ -361,6 +536,30 @@
       <li>Yitong Liu <span style="color:#888;font-size:13px;">(Winter 2026 – Spring 2026)</span></li>
       <li>Vaishnavi Badiger <span style="color:#888;font-size:13px;">(Winter 2026 – Spring 2026)</span></li>
       <li>Nya Chambers <span style="color:#888;font-size:13px;">(Winter 2026 – Spring 2026)</span></li>
+    </ul>
+  </section>
+
+  <!-- ── Projects ── -->
+  <!-- Uses the same card style as Press & Recognition.
+       To add a project, copy one <li>…</li> block and change the link, image, title and meta. -->
+  <section class="section" aria-labelledby="projects-heading">
+    <h2 class="section-label" id="projects-heading">Projects</h2>
+    <ul class="press-grid">
+
+      <li>
+        <!-- TODO: replace # with your GitHub repo link -->
+        <a class="press-card" href="#" target="_blank" rel="noopener">
+          <div class="press-thumb">
+            <img src="project-1.jpg" alt="Disease classification by symptom project" loading="lazy"
+                 onerror="this.style.display='none'; this.parentElement.classList.add('no-img');">
+            <span class="thumb-fallback">Disease Classification by Symptom</span>
+            <span class="press-open" aria-hidden="true"><svg viewBox="0 0 16 16"><path d="M8 0C3.58 0 0 3.58 0 8a8 8 0 0 0 5.47 7.59c.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82a7.65 7.65 0 0 1 2-.27c.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8z"/></svg></span>
+          </div>
+          <p class="press-title">Machine Learning Algorithms: Disease Classification by Symptom</p>
+          <p class="press-meta">Machine Learning · GitHub</p>
+        </a>
+      </li>
+
     </ul>
   </section>
 
