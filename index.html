@@ -315,6 +315,34 @@
       border-bottom: 1px solid #f0f0f0;
     }
 
+    /* ── Service & Leadership ── */
+    .service-group {
+      display: grid;
+      grid-template-columns: 150px 1fr;
+      gap: 0 24px;
+      padding: 14px 0;
+      border-bottom: 1px solid #ececec;
+    }
+    .service-group:first-of-type { padding-top: 0; }
+
+    .service-cat {
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: #023054;
+      opacity: 0.75;
+      padding-top: 3px;
+    }
+
+    .service-items { list-style: none; display: flex; flex-direction: column; gap: 6px; }
+    .service-items li { font-size: 14.5px; }
+    .service-items .when { color: #888; font-size: 13px; }
+
+    @media (max-width: 560px) {
+      .service-group { grid-template-columns: 1fr; gap: 6px; }
+    }
+
     /* ── Responsive ── */
     @media (max-width: 900px) {
       .press-grid.press-4 { grid-template-columns: repeat(3, 1fr); }
@@ -545,18 +573,6 @@
     </ul>
   </section>
 
-  <!-- ── Mentees ── -->
-  <section class="section" aria-labelledby="mentees-heading">
-    <h2 class="section-label" id="mentees-heading">Mentees</h2>
-    <p class="mentees-subhead">Undergraduate Students</p>
-    <ul class="mentee-list">
-      <li>Haoyi Cai <span style="color:#888;font-size:13px;">(Winter 2026 – Spring 2026)</span></li>
-      <li>Yitong Liu <span style="color:#888;font-size:13px;">(Winter 2026 – Spring 2026)</span></li>
-      <li>Vaishnavi Badiger <span style="color:#888;font-size:13px;">(Winter 2026 – Spring 2026)</span></li>
-      <li>Nya Chambers <span style="color:#888;font-size:13px;">(Winter 2026 – Spring 2026)</span></li>
-    </ul>
-  </section>
-
   <!-- ── Projects ── -->
   <!-- Uses the same card style as Press & Recognition.
        To add a project, copy one <li>…</li> block and change the link, image, title and meta. -->
@@ -579,6 +595,38 @@
       </li>
 
     </ul>
+  </section>
+
+  <!-- ── Service & Leadership ── -->
+  <section class="section" aria-labelledby="service-heading">
+    <h2 class="section-label" id="service-heading">Service &amp; Leadership</h2>
+
+    <div class="service-group">
+      <div class="service-cat">Reviewer</div>
+      <ul class="service-items">
+        <li>AMIA Annual Symposium <span class="when">(2027)</span></li>
+        <li>NeurIPS <span class="when">(2026)</span></li>
+        <li>Journal of Digital Health <span class="when">(2026)</span></li>
+      </ul>
+    </div>
+
+    <div class="service-group">
+      <div class="service-cat">Leadership</div>
+      <ul class="service-items">
+        <li>Founder, Latinx Graduate Affinity Group, UC Irvine Informatics</li>
+        <li>Founder, Latino Graduate Student Group (MS/PhD), UC Irvine</li>
+      </ul>
+    </div>
+
+    <div class="service-group">
+      <div class="service-cat">Mentees</div>
+      <ul class="service-items">
+        <li>Haoyi Cai <span class="when">(Winter 2026 – Spring 2026)</span></li>
+        <li>Yitong Liu <span class="when">(Winter 2026 – Spring 2026)</span></li>
+        <li>Vaishnavi Badiger <span class="when">(Winter 2026 – Spring 2026)</span></li>
+        <li>Nya Chambers <span class="when">(Winter 2026 – Spring 2026)</span></li>
+      </ul>
+    </div>
   </section>
 
 </main>
