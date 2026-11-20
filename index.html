@@ -283,6 +283,27 @@
       color: #666;
       margin-top: 2px;
     }
+
+    .projects-grid .press-thumb { background: #fff; }
+    .projects-grid .press-thumb img {
+      object-fit: contain;
+      padding: 8px;
+    }
+    .projects-grid .press-card:hover .press-thumb img { transform: none; }
+    .projects-grid .press-thumb.no-img {
+      background: linear-gradient(135deg, #023054 0%, #0a5a96 60%, #6fa3cf 100%);
+    }
+
+
+    .static-card { cursor: default; }
+    .static-card:hover .press-thumb {
+      transform: none;
+      box-shadow: 0 1px 4px rgba(2,48,84,0.08);
+    }
+    .static-card:hover .press-thumb::after { background: rgba(2,48,84,0); }
+    .static-card:hover .press-title { text-decoration: none; }
+
+    
     .mentees-subhead {
       font-style: italic;
       font-size: 13px;
@@ -561,17 +582,16 @@
 
    
       <li>
-        <a class="press-card" target="_blank" rel="noopener">
+        <div class="press-card static-card">
           <div class="press-thumb">
             <img src="triage-project-image.png" alt="Project 2" loading="lazy"
                  onerror="this.style.display='none'; this.parentElement.classList.add('no-img');">
             <span class="thumb-fallback">Evaluating LLMs for Emergency Department Triaging</span>
-            <span class="press-open" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M14 3v2h3.59l-9.83 9.83 1.41 1.41L19 6.41V10h2V3h-7zM19 19H5V5h7V3H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7h-2v7z"/></svg></span>
           </div>
           <p class="press-title">Evaluating LLMs for Emergency Department Triaging</p>
           <p class="project-desc">Evaluated the performance of multiple large language models in predicting emergency department triaging scores. Examined performance with real-world patient vitals collected at intake.</p>
           <p class="project-tag">AMIA Poster Presentation 2026</p>
-        </a>
+        </div>
       </li>
 
       
